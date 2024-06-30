@@ -52,40 +52,41 @@
 
   {% if productos %}
   
-  <div class="container mt-5" id="productos">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+  <div class="container-fluid" id="productos">
+    <div class="row">
         {% for producto in productos %}
 
-        <div class="col">
-          <div class="card h-100">
+        <div class="card mx-auto" style="width: 18rem; margin:30px">
               <img 
               src="/media/{{producto.imagen}}" 
               class="card-img-top"
-              style="width: 100%; height: auto"
               /> 
               <div class="card-body">
-                  <h5 class="card-title">
-                      {{ producto.nombre }}
-                  </h5>
-                  <h5 class="index_disponible card-title">
+                  <h5 class="index_disponible card-title text-center" >
                     {{ producto.html_estado|safe }}
                   </h5>
-                  <h5 class="index_precio card-title">
+                  
+                  <p class="index_precio card-title text-center">
                       Precio: {{ producto.html_precio|safe }}
-                  </h5>
-                  <p class="card-text text-center">
+                  </p>
+                  <p class="card-title text-center">
+                    {{ producto.nombre }}
+                </p>
+                <p class="card-title text-center">
+                  Descripción:
+              </p>
+                  <p class="card-text text-center text-center">
                       {{ producto.descripcion }}
                   </p>
-                  <p class="card-text text-center">
+                  <p class="card-text text-center text-center">
                     {{ producto.html_stock }}
                 </p>
-                  <div class="text-center">
+                  <div class="text-center text-center">
                       <a href="{% url 'ficha' producto.id %}" class="btn btn-primary">Comprar</a>
                   </div>
 
               </div>
           </div>
-      </div>
 
         {% endfor %}
       </div>

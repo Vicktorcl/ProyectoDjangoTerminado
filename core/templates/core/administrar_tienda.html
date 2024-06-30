@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    
+
+
+  <p style="text-align: left;font-size: 40px;">Administrar Tienda</p>
+
+
+
+  
+  <p><div><a href="{% url 'mantenedor_usuarios' 'crear' '0' %}">Mantenedor de Usuarios</a></div></p>
+
+  <p><div><a href="{% url 'productos' 'crear' '0' %}">Mantenedor de productos</a></div></p>
+   
+   <p><div><a href="{% url 'ventas' %}">Historial de ventas</a></div></p>
+
+   <p><div><a href="{% url 'bodega' %}">Mantenedor de Bodega</a></div></p>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}

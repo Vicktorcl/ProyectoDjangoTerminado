@@ -15,7 +15,51 @@ input, textarea, select {
   border-color: darkgray !important; /* Cambia "red" al color deseado */
 }
 
-/* Descomenta el selector div a continuación si quieres ver la diagramación de tu página */
-/* div {
-  border: 1px solid blue;
-} */
+
+.footer{
+  background-color: lightgray;
+}
+
+div{
+  border: 4px  soli red;
+}
+
+
+h1{text-align: center;}
+
+.contra {
+    display: flex;
+   justify-content: center;
+  }
+img{ float: left;}
+
+.custom-bg {
+  background-image: url('fondo.jpeg'); /* Reemplaza 'tu-imagen-de-fondo.jpg' con la ruta de tu imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área del fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-position: center center; /* Centra la imagen de fondo */
+  color: white; /* Cambia el color del texto para que sea legible en el fondo */
+}
+
+button, .btn {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.container{
+  margin:30px;
+}
+
+#boleta_tabla_estados td {
+  text-align: center;
+  vertical-align: top;
+}
+.error {
+  color: red;
+  font-weight: bolder;
+}
+
+label {
+font-weight: bolder;
+
+} 

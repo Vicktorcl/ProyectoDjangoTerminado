@@ -75,6 +75,10 @@ def nosotros(request):
     # CREAR: renderización de página
     return render(request, 'core/nosotros.html')
 
+def administrar_tienda(request):
+    # CREAR: renderización de página
+    return render(request, 'core/administrar_tienda.html')
+
 def api_ropa(request):
     return render(request, 'core/api_ropa.html')
 
@@ -120,7 +124,7 @@ def salir(request):
     return redirect(inicio)
 
 @user_passes_test(es_usuario_anonimo)
-def registrarme(request):
+def registro(request):
     
     if request.method == 'POST':
         
@@ -155,7 +159,7 @@ def registrarme(request):
         'form_perfil': form_perfil,
     }
 
-    return render(request, 'core/registrarme.html', context)
+    return render(request, 'core/registro.html', context)
 
 @login_required
 def misdatos(request):
@@ -293,7 +297,7 @@ def productos(request, accion, id):
 
 
 @user_passes_test(es_personal_autenticado_y_activo)
-def usuarios(request, accion, id):
+def mantenedor_usuarios(request, accion, id):
     
     usuario = User.objects.get(id=id) if int(id) > 0 else None
     perfil = usuario.perfil if usuario else None
@@ -313,7 +317,7 @@ def usuarios(request, accion, id):
             perfil.usuario_id = usuario.id
             perfil.save()
             messages.success(request, f'El usuario {usuario.first_name} {usuario.last_name} fue guardado.')
-            return redirect(usuarios, 'actualizar', usuario.id)
+            return redirect(mantenedor_usuarios, 'actualizar', usuario.id)
         else:
             messages.error(request, f'No fue posible guardar el nuevo usuario.')
             show_form_errors(request,[form_usuario, form_perfil])
@@ -325,7 +329,7 @@ def usuarios(request, accion, id):
         if accion == 'eliminar':
             eliminado, mensaje = eliminar_registro(User, id)
             messages.success(request, mensaje)
-            return redirect(usuarios, 'crear', '0')
+            return redirect(mantenedor_usuarios, 'crear', '0')
         else:
             form_usuario = UsuarioForm(instance=usuario)
             form_perfil = PerfilForm(instance=perfil)
@@ -341,7 +345,7 @@ def usuarios(request, accion, id):
         'usuarios': User.objects.all(),
      }
 
-    return render(request, 'core/usuarios.html', context)
+    return render(request, 'core/mantenedor_usuarios.html', context)
 
 @user_passes_test(es_personal_autenticado_y_activo)
 def bodega(request):
@@ -699,5 +703,5 @@ def poblar(request):
     # Opcionalmente se le puede enviar un correo único, para que los Administradores
     # del sistema puedan probar el cambio de password de los usuarios, en la página
     # de "Adminstración de usuarios".
-    poblar_bd('cri.gomezv@profesor.duoc.cl')
+    poblar_bd('vi.barrientosr@duocuc.cl')
     return redirect(inicio)

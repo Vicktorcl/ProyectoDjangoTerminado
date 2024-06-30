@@ -4,49 +4,50 @@
 
 {% block content %}
 
-<h1 class="text-center">Mantenedor de Productos</h1>
-<br>
-<form method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" id="form" name="form">
-  {% csrf_token %}      
+<div class="container border border-dark p-4">
+  <h2 class="text-center">Mantenedor de productos</h2>
+  <br>
+    <form method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" id="form" name="form">
+      {% csrf_token %}      
 
-  <div class="container-fluid">
-    <!-- Datos del formulario -->
-    <div class="row d-flex justify-content-center">
+      <div class="container-fluid">
+        <!-- Datos del formulario -->
+        <div class="row d-flex justify-content-center">
 
-      <!-- Cajas de texto del formulario -->
-      <div class="col-sm-12 col-md-8 col-lg-8">
-        {{ form|as_bootstrap_form }}
-      </div>
+          <!-- Cajas de texto del formulario -->
+          <div class="col-sm-12 col-md-8 col-lg-8">
+            {{ form|as_bootstrap_form }}
+          </div>
 
-      <!-- AREA DE IMAGEN DEL PRODUCTO -->
-      <div class="col-sm-12 col-md-3 text-center">
+          <!-- AREA DE IMAGEN DEL PRODUCTO -->
+          <div class="col-sm-12 col-md-3 text-center">
 
-        <!-- AREA DE CUADRO DE IMAGEN: Imagen del producto (VER COMENTARIO "CUADRO DE IMAGEN" en script.js) -->
-        {% if form.imagen.value %}
-          <img height="350px" id="cuadro-imagen" src="/media/{{ form.imagen.value }}">
-        {% else %}
-          <img height="350px" id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
-        {% endif %}
-        
-        
-      </div>
+            <!-- AREA DE CUADRO DE IMAGEN: Imagen del producto (VER COMENTARIO "CUADRO DE IMAGEN" en script.js) -->
+            {% if form.imagen.value %}
+              <img height="350px" id="cuadro-imagen" src="/media/{{ form.imagen.value }}">
+            {% else %}
+              <img height="350px" id="cuadro-imagen" src="{% static 'core/img/logo.jpg' %}">
+            {% endif %}
+            
+            
+          </div>
 
-      <!-- Botones del formulario -->
-      <div class="row" class="registro-botones">
-        <div class="col text-center" class="justify-content-center">
-          <button style="width: 130px" type="submit" class="btn btn-primary">Guardar</button>
-          <a style="width: 130px" href="{% url 'productos' 'crear' 0 %}" class="btn btn-success ">Nuevo</a>
+          <!-- Botones del formulario -->
+          <div class="row" class="registro-botones">
+            <div class="col text-center" class="justify-content-center">
+              <button style="width: 130px" type="submit" class="btn btn-primary">Guardar</button>
+              <a style="width: 130px" href="{% url 'productos' 'crear' 0 %}" class="btn btn-success ">Nuevo</a>
 
-          <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
-          <button onclick="event.preventDefault(); document.getElementById('id_imagen').click();" class="btn btn-info"> Seleccionar imagen </button>  
+              <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
+              <button onclick="event.preventDefault(); document.getElementById('id_imagen').click();" class="btn btn-info"> Seleccionar imagen </button>  
 
-          <a href="{% url 'productos' 'eliminar' form.instance.id %}" style="width: 130px" type="reset" class="btn btn-danger">Eliminar</a>
+              <a href="{% url 'productos' 'eliminar' form.instance.id %}" style="width: 130px" type="reset" class="btn btn-danger">Eliminar</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-</form>
-
 <div style="heigth: 100px; background-color: lightgreen; padding: 20px; magin: 20px; ">
   {% for message in messages %}
     {{ message }}
@@ -99,7 +100,7 @@
 {% endblock content %}
 
 {% block script %}
-    <script src="{% static 'core/js/productos.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/js/validador_productos.js' %}" type="text/javascript"></script>
 {% endblock script %}
 
 

@@ -4,14 +4,8 @@
 
 {% block content %}
 
-<h1 class="text-center">Mantenedor de Bodega </h1>
+<h1 class="text-center">Bodega de productos </h1>
 <br>
-    <!-- 
-        AREA DE DATOS BASICOS: combobox de categoría, combobox de producto y cantidad.
-        El Combobox de Producto se carga dependiendo del valor el Combobox de Categoría,
-        para ello se usa jquery y ajax.
-        (VER COMENTARIO "COMBOBOX DEPENDIENTES PARA CATEGORIA Y PRODUCTO" en bodega.js)
-    -->
     
     <div class="container-fluid">
     <form id="form" method="POST" class="text-center">
@@ -23,7 +17,7 @@
             </div>
 
             <div class="col-sm-12 col-md-1">
-                <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
+                <img id="cuadro-imagen" src="{% static 'core/img/logo.jpg' %}">
             </div>
         </div>
         <div class="mt-2 mb-3 text-center">
@@ -42,7 +36,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Categoria</th>
-                    <th>Producto</th>
+                    <th>Nombre</th>
                     <th>Estado</th>
                     <th>imagen</th>
                     <th scope="col">Acción</th>
@@ -79,5 +73,5 @@
 
 {% block script %}
     <input type="hidden" id="url_obtener_productos" value="{% url 'obtener_productos' %}">
-    <script src="{% static 'core/js/bodega.js' %}"></script>
+    <script src="{% static 'core/js/validador_bodega.js' %}"></script>
 {% endblock script %}

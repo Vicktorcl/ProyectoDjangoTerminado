@@ -88,83 +88,84 @@ def poblar_bd(test_user_email=''):
     eliminar_tablas()
 
     crear_usuario(
-        username='cevans',
+        username='jdoe',
         tipo='Cliente', 
-        nombre='Chris', 
-        apellido='Evans', 
-        correo=test_user_email if test_user_email else 'cevans@marvel.com', 
+        nombre='John', 
+        apellido='Doe', 
+        correo=test_user_email if test_user_email else 'jdoe@example.com', 
         es_superusuario=False, 
         es_staff=False, 
-        rut='25.747.200-0',	
-        direccion='123 Main Street, Los Angeles, \nCalifornia 90001 \nEstados Unidos', 
+        rut='11.111.111-1',	
+        direccion='123 Elm Street, Springfield, \nIllinois 62701 \nEstados Unidos', 
         subscrito=True, 
-        imagen='perfiles/cevans.jpg')
+        imagen='perfiles/jdoe.jpg')
 
     crear_usuario(
-        username='eolsen',
+        username='asmith',
         tipo='Cliente', 
-        nombre='Elizabeth', 
-        apellido='Olsen', 
-        correo=test_user_email if test_user_email else 'eolsen@marvel.com', 
+        nombre='Alice', 
+        apellido='Smith', 
+        correo=test_user_email if test_user_email else 'asmith@example.com', 
         es_superusuario=False, 
         es_staff=False, 
-        rut='12.202.357-5', 
-        direccion='Albert Street, New York, \nNew York 10001 \nEstados Unidos', 
+        rut='22.222.222-2', 
+        direccion='456 Oak Avenue, Chicago, \nIllinois 60611 \nEstados Unidos', 
         subscrito=True, 
-        imagen='perfiles/eolsen.jpg')
+        imagen='perfiles/asmith.jpg')
 
     crear_usuario(
-        username='tholland',
+        username='bwhite',
         tipo='Cliente', 
-        nombre='Tom', 
-        apellido='Holland', 
-        correo=test_user_email if test_user_email else 'tholland@marvel.com', 
+        nombre='Bob', 
+        apellido='White', 
+        correo=test_user_email if test_user_email else 'bwhite@example.com', 
         es_superusuario=False, 
         es_staff=False, 
-        rut='11.991.600-3', 
-        direccion='105 Apple Park Way, \nCupertino, CA 95014 \nEstados Unidos', 
+        rut='33.333.333-3', 
+        direccion='789 Pine Road, Los Angeles, \nCalifornia 90001 \nEstados Unidos', 
         subscrito=False, 
-        imagen='perfiles/tholland.jpg')
+        imagen='perfiles/bwhite.jpg')
 
     crear_usuario(
-        username='sjohansson',
+        username='jblack',
         tipo='Cliente', 
-        nombre='Scarlett', 
-        apellido='Johansson', 
-        correo=test_user_email if test_user_email else 'sjohansson@marvel.com', 
+        nombre='Jack', 
+        apellido='Black', 
+        correo=test_user_email if test_user_email else 'jblack@example.com', 
         es_superusuario=False, 
         es_staff=False, 
-        rut='16.469.725-8', 
-        direccion='350 5th Ave, \nNew York, NY 10118 \nEstados Unidos', 
+        rut='44.444.444-4', 
+        direccion='101 Maple Street, Seattle, \nWashington 98101 \nEstados Unidos', 
         subscrito=False, 
-        imagen='perfiles/sjohansson.jpg')
+        imagen='perfiles/jblack.jpg')
 
     crear_usuario(
-        username='cpratt',
+        username='mclark',
+        tipo='Cliente', 
+        nombre='Mary', 
+        apellido='Clark', 
+        correo=test_user_email if test_user_email else 'mclark@example.com', 
+        es_superusuario=False, 
+        es_staff=False, 
+        rut='55.555.555-5', 
+        direccion='202 Birch Road, Denver, \nColorado 80201 \nEstados Unidos', 
+        subscrito=True, 
+        imagen='perfiles/mclark.jpg')
+
+    # Crear superusuario de la tienda
+    crear_usuario(
+        username='admin',
         tipo='Administrador', 
-        nombre='Chris', 
-        apellido='Pratt', 
-        correo=test_user_email if test_user_email else 'cpratt@marvel.com', 
-        es_superusuario=False, 
+        nombre='Admin', 
+        apellido='User', 
+        correo=test_user_email if test_user_email else 'admin@example.com', 
+        es_superusuario=True, 
         es_staff=True, 
-        rut='19.441.980-5', 
-        direccion='10 Pine Road, Miami, \nFlorida 33101 \nEstados Unidos', 
+        rut='99.999.999-9', 
+        direccion='Principal Office, Main Street, \nCiudad', 
         subscrito=False, 
-        imagen='perfiles/cpratt.jpg')
+        imagen='perfiles/admin.jpg')
     
-    crear_usuario(
-        username='mruffalo',
-        tipo='Administrador', 
-        nombre='Mark', 
-        apellido='Ruffalo', 
-        correo=test_user_email if test_user_email else 'mruffalo@marvel.com', 
-        es_superusuario=False, 
-        es_staff=True, 
-        rut='21.708.052-5', 
-        direccion='1600 Pennsylvania Avenue NW, \nWashington, D.C. \nEstados Unidos', 
-        subscrito=False, 
-        imagen='perfiles/mruffalo.jpg')
-
     crear_usuario(
         username='super',
         tipo='Superusuario',
@@ -191,211 +192,211 @@ def poblar_bd(test_user_email=''):
     print('Categorías creadas correctamente')
 
     productos_data = [
-        # Categoría "Acción" (8 juegos)
-        {
-            'id': 1,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'Grand Theft Auto V',
-            'descripcion': 'Grand Theft Auto V te sumerge en la soleada ciudad de Los Santos y sus alrededores, donde seguirás las historias entrelazadas de tres criminales muy diferentes mientras planean y ejecutan audaces atracos para sobrevivir en una ciudad despiadada. Disfruta de un mundo abierto enorme y detallado, con una gran variedad de misiones, actividades y desafíos, además de un modo online multijugador en constante evolución.',
-            'precio': 29990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 15,
-            'imagen': 'productos/000001.jpg'
-        },
-        {
-            'id': 2,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'Red Dead Redemption 2',
-            'descripcion': 'Red Dead Redemption 2 es una épica historia sobre la vida en el despiadado corazón de América. El vasto y evocador mundo del juego también proporcionará la base para una nueva experiencia multijugador online.',
-            'precio': 59990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 10,
-            'imagen': 'productos/000002.jpg'
-        },
-        {
-            'id': 3,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'Call of Duty: Modern Warfare II',
-            'descripcion': 'Call of Duty: Modern Warfare II es la secuela de Modern Warfare (2019) y la decimonovena entrega de la serie Call of Duty. La campaña de Modern Warfare II sigue a la Fuerza Operativa 141 mientras persiguen a un terrorista iraní llamado Hassan Zyani, quien adquirió un misil balístico estadounidense.',
-            'precio': 69990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 0,
-            'imagen': 'productos/000003.jpg'
-        },
-        {
-            'id': 4,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'God of War Ragnarök',
-            'descripcion': 'Únete a Kratos y Atreus en un viaje mítico por los Nueve Reinos mientras se preparan para la profetizada batalla que acabará con el mundo. En God of War Ragnarök, explorarás paisajes impresionantes y te enfrentarás a temibles enemigos, tanto dioses como monstruos, mientras buscas respuestas y aliados antes de que llegue el Ragnarök.',
-            'precio': 69990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 5,
-            'imagen': 'productos/000004.jpg'
-        },
-        {
-            'id': 5,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'Doom Eternal',
-            'descripcion': 'Doom Eternal es un shooter en primera persona desarrollado por id Software y publicado por Bethesda Softworks. El juego continúa la historia de Doom (2016), y sigue al Doom Slayer en su lucha contra las fuerzas del infierno que han invadido la Tierra.',
-            'precio': 19990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 20,
-            'imagen': 'productos/000005.jpg'
-        },
-        {
-            'id': 6,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'Elden Ring',
-            'descripcion': 'Elden Ring es un juego de rol de acción desarrollado por FromSoftware y publicado por Bandai Namco Entertainment. El juego se desarrolla en un mundo abierto llamado las Tierras Intermedias, donde los jugadores controlan a un personaje conocido como el Sinluz, que debe viajar por el mundo para restaurar el Elden Ring, un poderoso artefacto que ha sido destruido.',
-            'precio': 59990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 10,
-            'imagen': 'productos/000006.jpg'
-        },
-        {
-            'id': 7,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'Horizon Forbidden West',
-            'descripcion': 'Horizon Forbidden West es la secuela de Horizon Zero Dawn. El juego sigue a Aloy, una joven cazadora en un mundo postapocalíptico gobernado por máquinas. En Forbidden West, Aloy debe viajar a una nueva y peligrosa frontera para investigar una misteriosa plaga que está matando la vida vegetal y animal.',
-            'precio': 69990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 0,
-            'imagen': 'productos/000007.jpg'
-        },
-        {
-            'id': 8,
-            'categoria': Categoria.objects.get(id=1),
-            'nombre': 'Spider-Man: Miles Morales',
-            'descripcion': 'Spider-Man: Miles Morales es un juego de acción y aventura desarrollado por Insomniac Games y publicado por Sony Interactive Entertainment. El juego sigue a Miles Morales, un adolescente que adquiere poderes similares a los de Spider-Man después de ser mordido por una araña genéticamente modificada.',
-            'precio': 49990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 15,
-            'imagen': 'productos/000008.jpg'
-        },
-        # Categoría "Aventura" (4 juegos)
-        {
-            'id': 9,
-            'categoria': Categoria.objects.get(id=2),
-            'nombre': 'The Legend of Zelda: Breath of the Wild',
-            'descripcion': 'The Legend of Zelda: Breath of the Wild es un videojuego de acción-aventura desarrollado y publicado por Nintendo para las consolas Nintendo Switch y Wii U. El juego es la decimonovena entrega de la serie The Legend of Zelda y fue lanzado mundialmente en marzo de 2017. Breath of the Wild es un juego de mundo abierto que permite a los jugadores explorar libremente el reino de Hyrule.',
-            'precio': 59990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 0,
-            'imagen': 'productos/000009.jpg'
-        },
-        {
-            'id': 10,
-            'categoria': Categoria.objects.get(id=2),
-            'nombre': 'Uncharted 4: A Thief\'s End',
-            'descripcion': 'Uncharted 4: A Thief\'s End es un videojuego de acción-aventura desarrollado por Naughty Dog y publicado por Sony Computer Entertainment para PlayStation 4. El juego fue lanzado en mayo de 2016 y es la cuarta entrega principal de la serie Uncharted. La historia sigue a Nathan Drake, un cazador de tesoros retirado que se ve obligado a volver a su antigua vida cuando su hermano Sam reaparece.',
-            'precio': 19990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 20,
-            'imagen': 'productos/000010.jpg'
-        },
-        {
-            'id': 11,
-            'categoria': Categoria.objects.get(id=2),
-            'nombre': 'Assassin\'s Creed Valhalla',
-            'descripcion': 'Assassin\'s Creed Valhalla es un videojuego de acción-aventura desarrollado por Ubisoft Montreal y publicado por Ubisoft. Es la duodécima entrega principal de la serie Assassin\'s Creed y la sucesora de Assassin\'s Creed Odyssey de 2018. El juego se lanzó en noviembre de 2020 para Microsoft Windows, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S y Stadia.',
-            'precio': 59990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 10,
-            'imagen': 'productos/000011.jpg'
-        },
-        {
-            'id': 12,
-            'categoria': Categoria.objects.get(id=2),
-            'nombre': 'Star Wars Jedi: Fallen Order',
-            'descripcion': 'Star Wars Jedi: Fallen Order es una emocionante aventura de acción en tercera persona ambientada en el universo de Star Wars. Ponte en la piel de Cal Kestis, un padawan que sobrevivió a la Orden 66 y debe completar su entrenamiento, desarrollar nuevas y poderosas habilidades con la Fuerza y dominar el arte del sable láser mientras te mantienes un paso por delante del Imperio y sus mortíferos Inquisidores.',
-            'precio': 39990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 15,
-            'imagen': 'productos/000012.jpg'
-        },
-        # Categoría "Estrategia" (4 juegos)
-        {
-            'id': 13,
-            'categoria': Categoria.objects.get(id=3),
-            'nombre': 'Civilization VI',
-            'descripcion': 'Civilization VI es un juego de estrategia por turnos en el que los jugadores intentan construir un imperio que resista el paso del tiempo. Explora un nuevo mundo, investiga tecnologías, conquista a tus enemigos y enfréntate a los líderes más famosos de la historia mientras intentas construir la civilización más grande jamás conocida.',
-            'precio': 39990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 5,
-            'imagen': 'productos/000013.jpg'
-        },
-        {
-            'id': 14,
-            'categoria': Categoria.objects.get(id=3),
-            'nombre': 'XCOM 2',
-            'descripcion': 'XCOM 2 es la secuela del galardonado juego de estrategia XCOM: Enemy Unknown. La Tierra ha cambiado y ahora está bajo control alienígena. Como líder de XCOM, una organización militar secreta, debes reconstruir la base de operaciones, reclutar nuevos soldados y liderar la resistencia para liberar a la humanidad del yugo alienígena.',
-            'precio': 19990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 15,
-            'imagen': 'productos/000014.jpg'
-        },
-        {
-            'id': 15,
-            'categoria': Categoria.objects.get(id=3),
-            'nombre': 'Total War: Warhammer III',
-            'descripcion': 'Total War: Warhammer III es un juego de estrategia en tiempo real y por turnos ambientado en el mundo de fantasía de Warhammer. El juego presenta cuatro razas jugables: Kislev, Cathay, Khorne y Nurgle, cada una con sus propias unidades, mecánicas y objetivos de campaña. Los jugadores pueden liderar a sus ejércitos en batallas masivas en tiempo real y gestionar sus imperios en un mapa de campaña por turnos.',
-            'precio': 59990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 0,
-            'imagen': 'productos/000015.jpg'
-        },
-        {
-            'id': 16,
-            'categoria': Categoria.objects.get(id=3),
-            'nombre': 'Age of Empires IV',
-            'descripcion': 'Age of Empires IV es un juego de estrategia en tiempo real desarrollado por Relic Entertainment y publicado por Xbox Game Studios. El juego es la cuarta entrega principal de la serie Age of Empires y fue lanzado en octubre de 2021. El juego presenta ocho civilizaciones jugables, cada una con sus propias unidades, tecnologías y edificios únicos.',
-            'precio': 59990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 10,
-            'imagen': 'productos/000016.jpg'
-        },
-        # Categoría "RPG" (4 juegos)
-        {
-            'id': 17,
-            'categoria': Categoria.objects.get(id=4),
-            'nombre': 'The Witcher 3: Wild Hunt',
-            'descripcion': 'The Witcher 3: Wild Hunt es un juego de rol de acción de mundo abierto desarrollado y publicado por CD Projekt Red. El juego sigue a Geralt de Rivia, un cazador de monstruos profesional conocido como brujo, mientras busca a su hija adoptiva, Ciri, quien está siendo perseguida por la Cacería Salvaje, una fuerza espectral que busca usar sus poderes para sus propios fines.',
-            'precio': 29990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 10,
-            'imagen': 'productos/000017.jpg'
-        },
-        {
-            'id': 18,
-            'categoria': Categoria.objects.get(id=4),
-            'nombre': 'Final Fantasy VII Remake',
-            'descripcion': 'Final Fantasy VII Remake es una reimaginación del clásico juego de rol de 1997. El juego sigue a Cloud Strife, un ex-SOLDADO que se une a un grupo eco-terrorista llamado AVALANCHE para luchar contra la megacorporación Shinra, que está drenando la energía vital del planeta.',
-            'precio': 59990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 5,
-            'imagen': 'productos/000018.jpg'
-        },
-        {
-            'id': 19,
-            'categoria': Categoria.objects.get(id=4),
-            'nombre': 'Cyberpunk 2077',
-            'descripcion': 'Cyberpunk 2077 es un juego de rol de acción de mundo abierto desarrollado y publicado por CD Projekt Red. El juego se desarrolla en Night City, una megaciudad futurista obsesionada con el poder, el glamour y la modificación corporal. Los jugadores asumen el papel de V, un mercenario que puede ser personalizado en términos de género, apariencia y trasfondo.',
-            'precio': 39990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 15,
-            'imagen': 'productos/000019.jpg'
-        },
-        {
-            'id': 20,
-            'categoria': Categoria.objects.get(id=4),
-            'nombre': 'Diablo IV',
-            'descripcion': 'Diablo IV es un juego de rol de acción de mazmorras desarrollado y publicado por Blizzard Entertainment. Es la cuarta entrega principal de la serie Diablo y fue lanzado en junio de 2023. El juego se desarrolla en un mundo oscuro y gótico llamado Santuario, donde los jugadores luchan contra las fuerzas del infierno.',
-            'precio': 69990,
-            'descuento_subscriptor': 5,
-            'descuento_oferta': 0,
-            'imagen': 'productos/000020.jpg'
-        }
-    ]
+    # Categoría "Acción" (8 juegos)
+    {
+        'id': 1,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Gears 5',
+        'descripcion': 'Gears 5 es la última entrega de la famosa saga de disparos en tercera persona. Únete a Kait Diaz en su viaje para descubrir los orígenes de los Locust y proteger a Sera. Disfruta de una campaña épica y modos multijugador innovadores.',
+        'precio': 34990,
+        'descuento_subscriptor': 10,
+        'descuento_oferta': 20,
+        'imagen': 'productos/000001.jpg'
+    },
+    {
+        'id': 2,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Dying Light 2',
+        'descripcion': 'Dying Light 2 te sumerge en una ciudad devastada por el apocalipsis zombi. Explora un vasto mundo abierto, toma decisiones cruciales y usa tus habilidades de parkour para sobrevivir en este emocionante juego de acción y supervivencia.',
+        'precio': 59990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 10,
+        'imagen': 'productos/000002.jpg'
+    },
+    {
+        'id': 3,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Watch Dogs: Legion',
+        'descripcion': 'En Watch Dogs: Legion, puedes reclutar y jugar como cualquier personaje que encuentres en las calles de Londres. Únete a la resistencia y lucha contra un régimen opresivo usando hackeo, combate y estrategia en un mundo abierto dinámico.',
+        'precio': 49990,
+        'descuento_subscriptor': 10,
+        'descuento_oferta': 25,
+        'imagen': 'productos/000003.jpg'
+    },
+    {
+        'id': 4,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Sekiro: Shadows Die Twice',
+        'descripcion': 'Sekiro: Shadows Die Twice es un desafiante juego de acción y aventura desarrollado por FromSoftware. Juega como un shinobi en busca de venganza y redención en un mundo feudal japonés lleno de peligros y enemigos formidables.',
+        'precio': 59990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 15,
+        'imagen': 'productos/000004.jpg'
+    },
+    {
+        'id': 5,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Just Cause 4',
+        'descripcion': 'Just Cause 4 lleva la acción a nuevas alturas con su mundo abierto lleno de caos y destrucción. Juega como Rico Rodriguez y utiliza un vasto arsenal de armas y gadgets para derrocar a un régimen opresivo en la región de Solís.',
+        'precio': 39990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 15,
+        'imagen': 'productos/000005.jpg'
+    },
+    {
+        'id': 6,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Hitman 3',
+        'descripcion': 'Hitman 3 es la conclusión épica de la trilogía World of Assassination. Juega como el Agente 47 y viaja por todo el mundo para eliminar a tus objetivos de manera creativa y sigilosa en algunos de los entornos más detallados y abiertos jamás creados.',
+        'precio': 69990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 10,
+        'imagen': 'productos/000006.jpg'
+    },
+    {
+        'id': 7,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Death Stranding',
+        'descripcion': 'En Death Stranding, juegas como Sam Porter Bridges en una misión para reconectar a una sociedad fracturada. Este innovador juego de acción y exploración combina una narrativa profunda con un gameplay único y cautivador.',
+        'precio': 59990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 10,
+        'imagen': 'productos/000007.jpg'
+    },
+    {
+        'id': 8,
+        'categoria': Categoria.objects.get(id=1),
+        'nombre': 'Control',
+        'descripcion': 'Control es un juego de acción y aventura que te lleva a una realidad cambiante donde nada es lo que parece. Juega como Jesse Faden y explora la misteriosa Oficina Federal de Control, usando tus poderes sobrenaturales para combatir una amenaza de otro mundo.',
+        'precio': 19990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 20,
+        'imagen': 'productos/000008.jpg'
+    },
+    # Categoría "Aventura" (4 juegos)
+    {
+        'id': 9,
+        'categoria': Categoria.objects.get(id=2),
+        'nombre': 'Ori and the Will of the Wisps',
+        'descripcion': 'Ori and the Will of the Wisps es un hermoso juego de aventuras y plataformas. Acompaña a Ori en un emotivo viaje a través de un mundo pintado a mano, lleno de desafíos y secretos por descubrir.',
+        'precio': 29990,
+        'descuento_subscriptor': 10,
+        'descuento_oferta': 20,
+        'imagen': 'productos/000009.jpg'
+    },
+    {
+        'id': 10,
+        'categoria': Categoria.objects.get(id=2),
+        'nombre': 'Hollow Knight',
+        'descripcion': 'Hollow Knight es un juego de acción y aventura ambientado en un vasto mundo subterráneo. Explora cavernas, combate criaturas malignas y descubre los secretos de una antigua civilización en este aclamado título de estilo metroidvania.',
+        'precio': 19990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 15,
+        'imagen': 'productos/000010.jpg'
+    },
+    {
+        'id': 11,
+        'categoria': Categoria.objects.get(id=2),
+        'nombre': 'The Last of Us Part II',
+        'descripcion': 'The Last of Us Part II es una intensa experiencia narrativa de acción y aventura. Sigue a Ellie en su búsqueda de justicia y redención en un mundo postapocalíptico, enfrentando peligros tanto humanos como infectados.',
+        'precio': 59990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 10,
+        'imagen': 'productos/000011.jpg'
+    },
+    {
+        'id': 12,
+        'categoria': Categoria.objects.get(id=2),
+        'nombre': 'Tomb Raider',
+        'descripcion': 'Tomb Raider es una emocionante aventura de acción que sigue a una joven Lara Croft en su primera expedición. Explora tumbas antiguas, resuelve acertijos y combate enemigos mientras descubres los misterios de una isla olvidada.',
+        'precio': 29990,
+        'descuento_subscriptor': 10,
+        'descuento_oferta': 20,
+        'imagen': 'productos/000012.jpg'
+    },
+    # Categoría "Estrategia" (4 juegos)
+    {
+        'id': 13,
+        'categoria': Categoria.objects.get(id=3),
+        'nombre': 'Starcraft II',
+        'descripcion': 'Starcraft II es un juego de estrategia en tiempo real donde compites en batallas épicas en el universo de Starcraft. Elige entre tres razas únicas y utiliza tácticas avanzadas para derrotar a tus oponentes en este clásico de la estrategia.',
+        'precio': 39990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 5,
+        'imagen': 'productos/000013.jpg'
+    },
+    {
+        'id': 14,
+        'categoria': Categoria.objects.get(id=3),
+        'nombre': 'Company of Heroes 2',
+        'descripcion': 'Company of Heroes 2 es un juego de estrategia en tiempo real que te pone en el frente oriental de la Segunda Guerra Mundial. Lidera a tus tropas en intensas batallas y utiliza el entorno a tu favor para conseguir la victoria.',
+        'precio': 19990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 15,
+        'imagen': 'productos/000014.jpg'
+    },
+    {
+        'id': 15,
+        'categoria': Categoria.objects.get(id=3),
+        'nombre': 'Command & Conquer Remastered',
+        'descripcion': 'Command & Conquer Remastered Collection reúne dos de los juegos más emblemáticos de estrategia en tiempo real con gráficos mejorados y una jugabilidad modernizada. Revive la guerra entre GDI y NOD con características nuevas y clásicas.',
+        'precio': 59990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 10,
+        'imagen': 'productos/000015.jpg'
+    },
+    {
+        'id': 16,
+        'categoria': Categoria.objects.get(id=3),
+        'nombre': 'Age of Empires IV',
+        'descripcion': 'Age of Empires IV es un juego de estrategia en tiempo real que abarca la historia humana desde la Edad Media hasta la era moderna. Construye tu imperio, dirige ejércitos y expande tu civilización en este nuevo capítulo de la legendaria serie.',
+        'precio': 69990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 10,
+        'imagen': 'productos/000016.jpg'
+    },
+    # Categoría "Rol" (4 juegos)
+    {
+        'id': 17,
+        'categoria': Categoria.objects.get(id=4),
+        'nombre': 'The Witcher 3: Wild Hunt',
+        'descripcion': 'The Witcher 3: Wild Hunt es un juego de rol de mundo abierto aclamado por la crítica. Juega como Geralt de Rivia y embarca en una épica búsqueda para encontrar a tu hija adoptiva, enfrentando monstruos y tomando decisiones que afectan la historia.',
+        'precio': 19990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 25,
+        'imagen': 'productos/000017.jpg'
+    },
+    {
+        'id': 18,
+        'categoria': Categoria.objects.get(id=4),
+        'nombre': 'Final Fantasy XV',
+        'descripcion': 'Final Fantasy XV es un juego de rol de acción que sigue al príncipe Noctis y sus amigos en una misión para recuperar su reino. Explora un vasto mundo abierto, combate enemigos formidables y disfruta de una historia conmovedora y épica.',
+        'precio': 29990,
+        'descuento_subscriptor': 10,
+        'descuento_oferta': 20,
+        'imagen': 'productos/000018.jpg'
+    },
+    {
+        'id': 19,
+        'categoria': Categoria.objects.get(id=4),
+        'nombre': 'Persona 5',
+        'descripcion': 'Persona 5 es un juego de rol japonés que combina simulación de vida y exploración de mazmorras. Juega como un estudiante de secundaria que lidera un grupo de vigilantes con la capacidad de invocar personas, luchando contra la corrupción en la sociedad.',
+        'precio': 59990,
+        'descuento_subscriptor': 5,
+        'descuento_oferta': 10,
+        'imagen': 'productos/000019.jpg'
+    },
+    {
+        'id': 20,
+        'categoria': Categoria.objects.get(id=4),
+        'nombre': 'Dark Souls III',
+        'descripcion': 'Dark Souls III es un desafiante juego de rol de acción conocido por su dificultad y diseño de mundo interconectado. Explora un reino oscuro lleno de enemigos formidables y secretos ocultos, mientras intentas restaurar el fuego y salvar el mundo de la oscuridad.',
+        'precio': 29990,
+        'descuento_subscriptor': 10,
+        'descuento_oferta': 20,
+        'imagen': 'productos/000020.jpg'
+    }
+]
 
     print('Crear productos')
     for producto in productos_data:

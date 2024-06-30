@@ -5,9 +5,8 @@
 {% block content %}
 
 <h2 class="text-center">Ingreso de Usuario</h2>
-  
-  <div class="row justify-content-center">
-    <form id="form" method="POST" class="col-5 border border-3 p-4">
+<div class="container border border-dark p-4" style="width:500px">
+    <form id="form" method="POST" class="text-center">
 
       {% csrf_token %} 
       
@@ -18,18 +17,37 @@
         <button type="submit" class="btn btn-primary"> Ingresar </button>
       </div>
       
+      <br>
+      <a href="{% url 'registro' %}">Registrarse</a>
+      <!--Crear Olvido de contraseña-->
+      <a href="#">Olvidé mi Contraseña</a>
     </form>
   </div>
+</div>
 
   <!-- Combobox de usuarios (QUITAR EN VERSION DE PRODUCCION DEL SOFTWARE) -->
   <!-- NO LO BORRES PARA QUE PUEDAS HACER TUS PRUEBAS MAS RAPIDAMENTE  -->
-  {% include 'common/combobox_usuarios.html' %}
+  {% comment %} {% include 'common/combobox_usuarios.html' %} {% endcomment %}
   
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <br>
   <br>
   <br>
 {% endblock content %}
 
 {% block script %}
-  <script src="{% static 'core/js/ingresar.js' %}"></script>
+  <script src="{% static 'core/js/validador_ingreso.js' %}"></script>
 {% endblock script %}

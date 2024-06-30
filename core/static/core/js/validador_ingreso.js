@@ -1,33 +1,30 @@
 $(document).ready(function() {
-   
+
+  // Asignar placeholders para ayudar a los usuarios
   $('#id_username').attr('placeholder', 'Ej: cgomezv, cevans, sjohasson');
   $('#id_password').attr('placeholder', 'Ingesa tu contraseña actual');
 
-  $("#formulario-ingreso").validate({
+  $('#form').validate({ 
       rules: {
-        username: {
+        'username': {
           required: true,
         },
-        password: {
+        'password': {
           required: true,
-          minlength: 5,
-          maxlength: 15,
         },
-      }, // --> Fin de reglas
+      },
       messages: {
-        username: {
-          required: "El nombre de usuario es un campo requerido",
+        'username': {
+          required: 'Debe ingresar un nombre de usuario',
         },
-        password: {
-          required: "La contraseña es un campo requerido",
-          minlength: "Su contraseña es de un mínimo de 5 caracteres",
-          maxlength: "Su contraseña es de un máximo de 15 caracteres",
+        'password': {
+          required: 'Debe ingresar una contraseña',
         },
-    },
-    errorPlacement: function(error, element) {
-      error.insertAfter(element); // Inserta el mensaje de error después del elemento
-      error.addClass('error-message'); // Aplica una clase al mensaje de error
-    },
+      },
+      errorPlacement: function(error, element) {
+        error.insertAfter(element); // Inserta el mensaje de error después del elemento
+        error.addClass('error-message'); // Aplica una clase al mensaje de error
+      },
   });
 
   $('#user-select').change(function() {
@@ -39,5 +36,5 @@ $(document).ready(function() {
     $('#id_username').val(username);
     $('#id_password').val(password);
   });
-  
+
 });

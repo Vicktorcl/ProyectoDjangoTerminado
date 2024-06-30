@@ -3,8 +3,8 @@
 {% load custom_filters %}
 
 {% block content %}
-    
-    <h1> Carrito de compras </h1>
+<div class="container">
+    <h1 class="mt-5">Carrito de Compras</h1>
 
     <table id="tabla-principal" class="table table-hover">
         <thead>
@@ -82,9 +82,10 @@
         </tbody>
     </table>
 
+</div>
     <div class="text-center">
-        <a href="{% url 'vaciar_carrito' %}" class="btn btn-danger"> Vaciar carrito </a>
-        <a href="#" class="btn btn-success"> Continuar al pago </a>
+        <a href="{% url 'vaciar_carrito' %}" class="btn btn-danger"> Cancelar Compra </a>
+        <a href="#" class="btn btn-success"> Pagar </a>
     </div>
     
 {% endblock content %}

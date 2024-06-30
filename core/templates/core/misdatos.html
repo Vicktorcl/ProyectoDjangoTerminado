@@ -3,34 +3,31 @@
 {% load custom_filters %}
 
 {% block content %}
-<h1 class="text-center">Mis datos </h1>
+
+<div class="container border border-dark p-4">
+  <h2 class="text-center">Mis datos </h2>
 <br>
   <form id="form" method="POST" enctype="multipart/form-data">
-
+    <div class="container">
     {% csrf_token %}
 
     <div class="row">
-
-      <!-- AREA DE DATOS BASICOS: username, nombre, apellidos, correo y contraseñas -->
-      <div class="col-sm-12 col-md-4">
+      <div class="col-9">
 
         {{form_usuario|as_bootstrap_form:'help_text_visible=False' }}
 
-      </div>
 
-      <!-- AREA DE DATOS DE PERFIL: rut, dirección y subscrito (VER COMENTARIO "CHECKBOX SUBSCRITO" en script.js)  -->
-      <div class="col-sm-12 col-md-5">
 
         {{ form_perfil|as_bootstrap_form }}
 
       </div>
 
       <!-- AREA DE IMAGEN DE PERFIL -->
-      <div class="col-sm-12 col-md-3 text-center">
+      <div class="col-1">
         <div class="row">
           <!-- AREA DE CUADRO DE IMAGEN: Muestra la Imagen de perfil -->
           <div class="col-sm-12" style="height: 220px">
-            <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
+            <img id="cuadro-imagen" src="{% static 'core/img/logo.jpg' %}">
           </div>
         </div>
       </div>
@@ -46,9 +43,10 @@
       <button class="btn btn-info" onclick="event.preventDefault(); document.getElementById('id_imagen').click(); "> Seleccionar imagen </button>  
 
     </div>
-
+  </div>
   </form>
 
+</div>
   <br>
 <br>
 <br>
