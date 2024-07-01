@@ -1,15 +1,28 @@
 <script type="text/javascript">
 $(document).ready(function() {
-
   var mensajes = `{{ backend_messages }}`;
   var icon = `{{ backend_message_type }}`;
 
   if (mensajes != '') {
     Swal.fire({
-      title: 'Fentanyl Games te informa',
+      title: '<strong>Fentanyl Games te informa</strong>',
       html: mensajes,
       icon: icon,
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Aceptar',
+      confirmButtonColor: '#3085d6',
+      background: '#fefefe',
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        left top
+        no-repeat
+      `,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
     });
   }
 });
