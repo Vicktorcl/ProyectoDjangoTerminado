@@ -1,4 +1,3 @@
-alert(11);
 $(document).ready(function() {
     // BOTON IMAGEN: Prepara el botón de  
       // 1. Ocultar la etiqueta que acompaña al botón de "Seleccionar archivo" (el clásico botón input type file)

@@ -585,7 +585,7 @@ def agregar_producto_al_carrito(request, producto_id):
         return redirect(inicio)
     elif es_usuario_anonimo(request.user):
         messages.info(request, 'Para poder comprar, primero debes registrarte como cliente.')
-        return redirect(registrarme)
+        return redirect(registro)
 
     perfil = request.user.perfil
     producto = Producto.objects.get(id=producto_id)

@@ -1,0 +1,122 @@
+.logo-menu-superior {
+  height: 40px;
+}
+
+.link-bloque {
+  display: inline-block; /* Mostrar como bloque en línea */
+  text-decoration: none !important; /* Eliminar subrayado del enlace */
+  color: inherit; /* Heredar el color del texto */
+  text-decoration: lin;
+}
+
+.link-bloque:hover {
+  /* Estilos adicionales al pasar el mouse sobre el enlace */
+  cursor: pointer;
+  border: 1px solid lightblue;
+}
+
+.error-message {
+  color: red !important;
+  font-weight: bold !important;
+}
+
+.table-hover .letra-boleta-anulada td {
+  color: red !important;
+  font-weight: bold !important;
+}
+
+.producto-sm {
+  width:  82px;
+  height: 70px;
+}
+
+.usuario-sm {
+  width:  82px;
+  height: 70px;
+}
+
+.inicio-producto-imagen {
+  max-width:  165px;
+  /* max-height: 139px; */
+}
+
+.inicio-producto-descripcion {
+  width: 200px; /* Ancho fijo para el contenedor */
+  white-space: nowrap; /* Evita que el texto se desborde */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
+}
+
+#cuadro-imagen {
+  max-width: 236px;
+  max-height: 199px;
+  padding: 3px;
+  border: 2px solid gray;
+}
+
+.ancho-160px {
+  width: 160px;
+}
+
+.ancho-175px {
+  width: 175px;
+}
+
+.ancho-200px {
+  width: 200px;
+}
+
+.td_img_estado_boleta {
+  text-align: center;
+  padding-left: 10px;
+}
+
+.td_fec_estado_boleta {
+  text-align: center;
+  font-size: 12px;
+}
+
+#id_direccion {
+  height: 130px;
+}
+
+.centrar-imagen-cargando-en-pantalla {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.ocultar-elemento {
+  display: none;
+}
+
+.capa-cubre-todo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #2C9ECC; */
+  background-color: #222222;
+  z-index: 10;
+}
+
+.menu-inferior {
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.instrucciones-para-el-alumno {
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+  background-color: yellow;
+  border: 3px solid darkgray;
+  margin: 4px;
+  /* display: none; */
+}
+
