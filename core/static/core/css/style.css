@@ -63,3 +63,18 @@ label {
 font-weight: bolder;
 
 } 
+.image-container {
+  width: 536px;  /* Ajusta el tamaño del contenedor según tus necesidades */
+  height: 536px; /* Ajusta el tamaño del contenedor según tus necesidades */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+  margin: 0 auto; /* Centra el contenedor en su elemento padre */
+}
+
+.image-container img {
+  width: 100%; /* Asegúrate de que la imagen ocupe todo el ancho del contenedor */
+  height: 100%; /* Asegúrate de que la imagen ocupe toda la altura del contenedor */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor, recortando si es necesario */
+}

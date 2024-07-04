@@ -48,15 +48,11 @@
       </div>
     </form>
   </div>
-<div style="heigth: 100px; background-color: lightgreen; padding: 20px; magin: 20px; ">
-  {% for message in messages %}
-    {{ message }}
-  {% endfor %}
-</div>
+
 <!--Tabla-->
 <main role="main">
 <div class="container">
-    <table class="table mt-4">
+  <table id="tabla-principal" class="table table-hover">
         <thead>
             <tr>
                 <th>ID</th>
@@ -90,7 +86,6 @@
                   <td>
                     <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm"> Eliminar </a>
                   </td>
-                  <td>
               </tr>
             {% endfor %}
         </tbody>

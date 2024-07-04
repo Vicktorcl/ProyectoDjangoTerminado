@@ -3,7 +3,7 @@
 {% load custom_filters %}
 
 {% block content %}
-    
+
     {% if boleta %} 
         <div class="row">
             <div class="col-6 text-right">
@@ -48,7 +48,7 @@
 
         <main role="main">
             <div class="container">
-                <table id="tabla-principal" class="table table-hover">
+                <table class="table mt-4">
                     <thead>
                         <tr>
                             <th>Categoría</th>
@@ -67,36 +67,34 @@
                             <tr>
                                 <td>{{ detalle.bodega.producto.categoria.nombre }}</td>
                                 <td>{{ detalle.bodega.producto.nombre }}</td>
-                                <td>{{ detalle.precio|formatear_dinero}}</td>
-                                <td>{{ detalle.descuento_subscriptor|formatear_porcentaje}}</td>
-                                <td>{{ detalle.descuento_oferta|formatear_porcentaje}}</td>
-                                <td>{{ detalle.descuento_total|formatear_porcentaje}} </td>
-                                <td>{{ detalle.descuentos|formatear_dinero}}</td>
-                                <td>{{ detalle.precio_a_pagar|formatear_dinero}}</td>
+                                <td>{{ detalle.precio|formatear_dinero }}</td>
+                                <td>{{ detalle.descuento_subscriptor|formatear_porcentaje }}</td>
+                                <td>{{ detalle.descuento_oferta|formatear_porcentaje }}</td>
+                                <td>{{ detalle.descuento_total|formatear_porcentaje }}</td>
+                                <td>{{ detalle.descuentos|formatear_dinero }}</td>
+                                <td>{{ detalle.precio_a_pagar|formatear_dinero }}</td>
+                                <td></td> <!-- Columna vacía para alineación -->
                             </tr>
                         {% endfor %}
                         <tr>
-                            <td colspan="7"></td> <!-- Columnas vacías para alinear -->
-                            <td class="text-right"><strong>Monto sin IVA:</strong></td>
+                            <td colspan="8" class="text-right"><strong>Monto sin IVA:</strong></td>
                             <td>{{ boleta.monto_sin_iva|formatear_dinero }}</td>
                         </tr>
                         <tr>
-                            <td colspan="7"></td> <!-- Columnas vacías para alinear -->
-                            <td class="text-right"><strong>IVA:</strong></td>
-                            <td>{{ boleta.iva|formatear_dinero}}</td>
+                            <td colspan="8" class="text-right"><strong>IVA:</strong></td>
+                            <td>{{ boleta.iva|formatear_dinero }}</td>
                         </tr>
                         <tr>
-                            <td colspan="7"></td> <!-- Columnas vacías para alinear -->
-                            <td class="text-right"><strong>Total a pagar:</strong></td>
+                            <td colspan="8" class="text-right"><strong>Total a pagar:</strong></td>
                             <td>{{ boleta.total_a_pagar|formatear_dinero }}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </main>
-    
+
     {% else %}
         <h1>No se puede mostrar la boleta</h1>
     {% endif %}
-    
+
 {% endblock content %}

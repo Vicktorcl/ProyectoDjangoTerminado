@@ -129,6 +129,20 @@
             <a class="nav-link active" aria-current="page" href="{% url 'api_ropa' %}">Concurso!</a>
           </li>
 
+            
+          {% if user.is_superuser %}
+          <a class="nav-link text-danger fw-bold">
+        {% elif user.is_staff %}
+          <a class="nav-link text-success fw-bold">
+        {% else %}
+          <a class="nav-link">
+        {% endif %}
+          {{ first_name }} {{ last_name }}
+          {% if user.perfil.subscrito %}
+            <span class="badge bg-secondary">(premium)</span>
+          {% endif %}
+        </a>
+        
           {% if mostrar_carrito %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'carrito' %}">
@@ -138,9 +152,12 @@
             </li>
           {% endif %}
 
+  
+
 
         </ul>
 
+        
         
 
         <!-- FORMULARIO DE BUSQUEDA -->
