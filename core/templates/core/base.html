@@ -129,9 +129,11 @@
             </li> {% endcomment %}
           {% endif %}
           
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'api_ropa' %}">Concurso!</a>
-          </li>
+
+          <a class="navbar-brand" href="{% url 'api_ropa' %}">
+            <img src="{% static 'core/img/oferta.jpg' %}" class="logo-menu-superior" height="150px" width="70px" style="margin-left: 20px">
+          </a>
+
 
             
           {% if user.is_superuser %}
