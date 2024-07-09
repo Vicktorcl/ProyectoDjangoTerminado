@@ -17,6 +17,10 @@
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/style_base.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/page-layout.css' %}">
 
+    {% block extrahead %}
+        <link rel="icon" href="static/core/img/favicon.ico" sizes="48x48" />
+    {% endblock %}
+
     {% block stylesheet %}
       
     {% endblock stylesheet %}
