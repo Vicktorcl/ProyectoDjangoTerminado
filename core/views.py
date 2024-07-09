@@ -673,7 +673,7 @@ def cambiar_password(request):
                 messages.error(request, 'La cuenta o la password no son correctos')
         else:
             messages.error(request, 'El usuario al que quiere generar una nueva contraseña ya no existe en el sistema')
-    return redirect(usuarios, 'crear', '0')
+    return redirect(mantenedor_usuarios, 'crear', '0')
 
 def enviar_correo_cambio_password(request, user, password):
     try:
