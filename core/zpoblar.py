@@ -177,7 +177,7 @@ def poblar_bd(test_user_email=''):
         rut='13.029.317-4',
         direccion='15 Oak Street, Los Angeles, \nCalifornia 90001 \nEstados Unidos',
         subscrito=False,
-        imagen='perfiles/victor')
+        imagen='perfiles/victor.jpg')
     
     categorias_data = [
         { 'id': 1, 'nombre': 'Acción'},
